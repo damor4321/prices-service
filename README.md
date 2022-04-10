@@ -80,8 +80,8 @@ Response: HTTP/1.1 400
 
 ```
 
-All the prices service exceptions (NoPriceFoundException, DataStoreException...) are children of the class PricesServiceException. 
-And they will be intercepted and handled by the annotated @RestControllerAdvice controller class PricesServiceExceptionController. 
+All the possible prices service exceptions created during the service depvelopment (as NoPriceFoundException) could be children of the class PricesServiceException. 
+And they would be intercepted and handled by the annotated @RestControllerAdvice controller class PricesServiceExceptionController. 
 As is explained in
 
 ```
