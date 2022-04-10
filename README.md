@@ -5,15 +5,17 @@ This is a SpringBoot PricesService microservice. Currently the service only supp
 ## How to Run 
 
 * Clone this repository:
-``
+```
+git clone https://github.com/damor4321/prices-service.git
+git checkout main
+```
 
-git checkout master
-``
 * Make sure you are using JDK 1.11 and Maven 3.x
 * You run the tests by running ``mvn clean test``
 * You can build the project, run the tests and verify the outcome by running ``mvn clean verify``
 * You can build the project and run the tests and install the generated artifact to your local mvn repository by running ``mvn clean install``
 * You can run the service by running:
+
 ```
         mvn spring-boot:run
 `` 
@@ -85,11 +87,11 @@ All the prices service exceptions (NoPriceFoundException, DataStoreException) ar
 And they will be intercepted and handled by the annotated @RestControllerAdvice PricesServiceExceptionController. 
 As is explained in
 
-``
+```
 
 https://www.baeldung.com/exception-handling-for-rest-with-spring#controlleradvice
 
-`` 
+```
 
 
 
