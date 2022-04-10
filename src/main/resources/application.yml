@@ -1,0 +1,48 @@
+app:
+  name: '@pom.artifactId@'
+  version: '@pom.version@'
+
+info:
+  version: '@pom.version@'
+---
+spring:
+  profiles: default
+  jpa:
+    show-sql: true
+    hibernate.ddl-auto: update
+  datasource:
+    driverClassName: org.h2.Driver
+    database-platform: org.hibernate.dialect.H2Dialect
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: mappings
+
+service:
+  name: prices_service
+  password: prices_service
+
+custom-datasource-data:
+  url: jdbc:h2:mem:testdb;INIT=RUNSCRIPT FROM 'classpath:pos_schema.sql';DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=30000
+  username: sa
+  password: sa
+
+server:
+  port: 60002
+  ssl:
+    enabled: false
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+logging:
+  level:
+    com:
+      netflix:
+        eureka: OFF
+        discovery: OFF
+

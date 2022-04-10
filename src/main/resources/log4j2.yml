@@ -1,0 +1,49 @@
+Configuration:
+	status: warn
+	name: PricesService
+
+	properties:
+		property:
+		name: logPath
+		value: /tmp
+
+	thresholdFilter:
+		level: debug
+
+	appenders:
+		Console:
+			- name: LogToConsoleColor
+			  CustomLayout: {}
+			- name: LogToconsole
+			  Customlayout: {}
+
+		File:
+			name: LogToFile
+			fileName: ${logPath}/app.log
+			CustomLayout: {}
+
+		RollingFile:
+			- name: LogToRollingFile
+			  fileName: ${logPath}/appRolling.log
+			  filePattern: "$${logPath}/$${date: yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz"
+			  CustomLayout: {}
+			  Policies:
+			  	SizeBasedTriggeringPolicy:
+					size: 10MB
+			  DefaultRolloverStrategy:
+				max: 10
+
+  Loggers:
+	logger:
+	  - name: com.gmail.damor4321
+	  	level: all
+	  	additivity: false
+	  	AppenderRef:
+		  - ref: LogToConsoleColor
+  Root:
+	level: info
+	AppenderRef:
+	  - ref: LogToFile
+	  # - ref: LogToConsole
+	  # - ref: LogToRollingfile
+
