@@ -80,15 +80,5 @@ Response: HTTP/1.1 400
 
 ```
 
-All the prices service exceptions (NoPriceFoundException, DataStoreException...) are children of the class PricesServiceException. 
-And they will be intercepted and handled by the annotated @RestControllerAdvice controller class PricesServiceExceptionController. 
-As is explained in
-
-```
-
-https://www.baeldung.com/exception-handling-for-rest-with-spring#controlleradvice
-
-```
-
 
 

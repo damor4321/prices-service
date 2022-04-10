@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.gmail.damor4321.prices.beans.database.PriceDb;
 import com.gmail.damor4321.prices.beans.exception.NoPriceFoundException;
-import com.gmail.damor4321.prices.beans.exception.PricesServiceException;
 import com.gmail.damor4321.prices.beans.object.Price;
 import com.gmail.damor4321.prices.repositories.PricesRepository;
 import com.gmail.damor4321.prices.services.PricesService;
@@ -17,44 +16,48 @@ import lombok.extern.slf4j.Slf4j;
 
 // TODO: Auto-generated Javadoc
 /**
- *  PricesService Implementation.
+ * PricesService Implementation.
  */
-
 @Service
+
+
 
 /** The Constant log. */
 @Slf4j
 public class PricesServiceImpl implements PricesService {
 
-	/** The prices repo. */
+	/** The prices repository. */
 	private @Autowired PricesRepository pricesRepo;
-	
+
 
 	/**
-	 * Method to get the price for the product at the time of the request.
+	 * Gets the price for product.
 	 *
 	 * @param productId the product id
 	 * @param brandId the brand id
 	 * @param requestDate the request date
-	 * @return price. the price object for the product
-	 * @throws PricesServiceException the prices service exception
+	 * @return the price for product
 	 */
 	@Override
-	public Price getPriceForProduct(Long productId, Integer brandId, LocalDateTime requestDate)
-			throws PricesServiceException {
-		
+	public Price getPriceForProduct(Long productId, Integer brandId, LocalDateTime requestDate) {
+
 		PriceDb priceDb = pricesRepo.getPricesForProductAndBrand(productId, brandId, requestDate);
-				
-		if(priceDb == null) {
-			String errorMsg =  "Price not found for product: " + productId + ", brand_id: " + brandId;
-			log.error(errorMsg);
+
+		/* 
+		 * if no price found we throw NoPriceFoundException, an unchecked exception to be handled by
+		 * PricesServiceExceptionController inside the REST layer
+		 */
+		
+		if (priceDb == null) {
+			String errorMsg = "Price not found for product: " + productId + ", brand_id: " + brandId;
+			log.error(errorMsg);			  
 			throw new NoPriceFoundException(errorMsg);
 		}
-		
+
 		Price price = new Price();
-		
+
 		BeanUtils.copyProperties(priceDb, price);
-		
+
 		return price;
 	}
 

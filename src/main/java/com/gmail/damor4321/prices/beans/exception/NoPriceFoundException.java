@@ -2,35 +2,21 @@ package com.gmail.damor4321.prices.beans.exception;
 
 // TODO: Auto-generated Javadoc
 /**
- *  NoPriceFoundException.
+ * NoPriceFoundException.
  */
-public class NoPriceFoundException extends PricesServiceException {
+public class NoPriceFoundException extends RuntimeException {
 	
-	/** The Constant serialVersionUID. */
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 *  NoPriceFoundException.
-	 */
-	public NoPriceFoundException() {
-		super();
-	}
-
-	/**
-	 * NoPriceFoundException.
-	 *
-	 * @param e the e
-	 */
-	public NoPriceFoundException(Exception e) {
-		super(e);
-	}
-
-	/**
-	 * NoPriceFoundException.
+	 * Instantiates a new no price found exception.
 	 *
 	 * @param msg the msg
 	 */
 	public NoPriceFoundException(String msg) {
-		super(new Exception(msg));
+		super(msg);
 	}
 }

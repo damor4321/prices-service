@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gmail.damor4321.prices.beans.exception.PricesServiceException;
 import com.gmail.damor4321.prices.beans.object.Price;
 import com.gmail.damor4321.prices.services.PricesService;
 
@@ -41,7 +40,6 @@ public class PricesController {
 	 * @param brandId the brand id
 	 * @param requestDate the request date
 	 * @return a Response Entity containing the list of cloud providers
-	 * @throws PricesServiceException Exception the price service exception
 	 */
 	@RequestMapping(value="/product" , method=RequestMethod.GET)
 	public @ResponseBody ResponseEntity<Price> getPriceForProduct(
@@ -49,8 +47,8 @@ public class PricesController {
 			@RequestParam(name = "brand_id", required = true) Integer brandId,
 			@RequestParam(value="request_date", required = true)
 			@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss") LocalDateTime requestDate
-			)
-					throws PricesServiceException {
+			) 
+	{
 
 		log.info("getPriceFor Product, product_id: {}, brand_id: {}, requestDate: {}",
 				productId, brandId, requestDate);
