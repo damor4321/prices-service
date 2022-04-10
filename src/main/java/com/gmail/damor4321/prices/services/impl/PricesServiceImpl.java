@@ -2,13 +2,11 @@ package com.gmail.damor4321.prices.services.impl;
 
 import java.time.LocalDateTime;
 
-import org.hibernate.JDBCException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gmail.damor4321.prices.beans.database.PriceDb;
-import com.gmail.damor4321.prices.beans.exception.DataStoreException;
 import com.gmail.damor4321.prices.beans.exception.NoPriceFoundException;
 import com.gmail.damor4321.prices.beans.exception.PricesServiceException;
 import com.gmail.damor4321.prices.beans.object.Price;
@@ -45,17 +43,8 @@ public class PricesServiceImpl implements PricesService {
 	public Price getPriceForProduct(Long productId, Integer brandId, LocalDateTime requestDate)
 			throws PricesServiceException {
 		
-		PriceDb priceDb = null;
-		try {
-
-			priceDb = pricesRepo.getPricesForProductAndBrand(productId, brandId, requestDate);
-		
-		} catch (JDBCException e) {
-			String errorMsg= "Problem to get data from DB. product: " + productId + ", brand_id: " + brandId;
-			log.error(errorMsg);
-			throw new DataStoreException(errorMsg);
-		}
-		
+		PriceDb priceDb = pricesRepo.getPricesForProductAndBrand(productId, brandId, requestDate);
+				
 		if(priceDb == null) {
 			String errorMsg =  "Price not found for product: " + productId + ", brand_id: " + brandId;
 			log.error(errorMsg);

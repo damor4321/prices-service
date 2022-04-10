@@ -9,13 +9,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.gmail.damor4321.prices.beans.exception.NoPriceFoundException;
-import com.gmail.damor4321.prices.beans.exception.DataStoreException;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class PricesServiceExceptionController.
- */
-/* 
+ * 
  * explanation: https://www.baeldung.com/exception-handling-for-rest-with-spring#controlleradvice
  */
 @RestControllerAdvice
@@ -37,16 +34,10 @@ public class PricesServiceExceptionController {
 	
 	
 	/**
-	 * Handles DataStoreException.
-	 *
-	 * @param e the e
-	 * @return ResponseEntity
+	 * Bellow this you can handle another possible PricesServicesException child exceptions
+	 * in the same way NoPriceFoundException is handled
+	 * in order to provide error responses for the user requests  
 	 */
-	@ExceptionHandler(DataStoreException.class)
-	public ResponseEntity<Object> handleDataStoreException(DataStoreException e) {
-		Map<String, Object> body = new LinkedHashMap<>();
-		body.put("ErrorMessage", e.getMessage());
-		body.put("Exception", "DataStoreException");
-		return new ResponseEntity<>(body, HttpStatus.SERVICE_UNAVAILABLE);
-	}
+
+
 }

@@ -171,6 +171,25 @@
 				</configuration>
 			</plugin>
 
+			<!-- this plugin fit the size of the generated artifact radically from the size of it using Spring initializr  -->
+			<!--
+			<plugin>
+			  <groupId>org.springframework.boot</groupId>
+			  <artifactId>spring-boot-maven-plugin</artifactId>
+			  <configuration>
+			    	<executable>true</executable>
+			  </configuration>
+			  <dependencies>
+			    <dependency>
+			      	<groupId>org.springframework.boot.experimental</groupId>
+			      	<artifactId>spring-boot-thin-layout</artifactId>
+			      	<version>1.0.20.RELEASE</version>
+			    </dependency>
+			  </dependencies>
+			</plugin>
+			-->
+			
+
 		</plugins>
 
 	</build>
