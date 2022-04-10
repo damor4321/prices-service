@@ -71,7 +71,7 @@ Response: HTTP/1.1 400
 If there is not a price resource for the requested params, the response will be:
 
 ```
-Response: HTTP/1.1 400
+Response: HTTP/1.1 404
 
 {
    "ErrorMessage":"Price not found for product: 10, brand_id: 1",
