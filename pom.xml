@@ -164,7 +164,6 @@
 			</plugin>
 
 			<!-- this plugin fit the size of the generated artifact radically from the size of it using Spring initializr  -->
-			<!--
 			<plugin>
 			  <groupId>org.springframework.boot</groupId>
 			  <artifactId>spring-boot-maven-plugin</artifactId>
@@ -179,7 +178,6 @@
 			    </dependency>
 			  </dependencies>
 			</plugin>
-			-->
 			
 
 		</plugins>
