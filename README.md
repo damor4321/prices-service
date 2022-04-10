@@ -14,11 +14,7 @@ git checkout main
 * You run the tests by running ``mvn clean test``
 * You can build the project, run the tests and verify the outcome by running ``mvn clean verify``
 * You can build the project and run the tests and install the generated artifact to your local mvn repository by running ``mvn clean install``
-* You can run the service by running:
-
-```
-        mvn spring-boot:run
-``
+* You can run the service by running ``mvn spring-boot:run``
 
 Then the service is running in http://localhost:60002
 
