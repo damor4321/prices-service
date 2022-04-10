@@ -46,7 +46,7 @@ Content-Type: application/json
    "brandId":1,
    "startDate":"2020-06-15T14:00:00.000+00:00",
    "endDate":"2020-12-31T22:59:59.000+00:00",
-   "pricelist":4,
+   "priceList":4,
    "productId":35455,
    "price":38.95,
    "currency":"EUR"
