@@ -18,7 +18,7 @@ git checkout main
 
 ```
         mvn spring-boot:run
-`` 
+``
 
 Then the service is running in http://localhost:60002
 
