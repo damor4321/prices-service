@@ -13,7 +13,7 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import com.gmail.damor4321.prices.beans.database.PriceDb;
+import com.gmail.damor4321.prices.beans.object.Price;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -54,9 +54,9 @@ public class PricesControllerTest {
 	@Test
 	void testGetPrice1() {
 		String getPriceURI = getPriceUri(35455L, 1, "2020-06-14 10:00:00");
-		ResponseEntity<PriceDb> response = rt.getForEntity(getPriceURI, PriceDb.class);
+		ResponseEntity<Price> response = rt.getForEntity(getPriceURI, Price.class);
 		assertEquals(HttpStatus.OK, response.getStatusCode(), "testGetPrice1 check");
-		PriceDb result = response.getBody();
+		Price result = response.getBody();
 		assertThat(withBigDecimal(result.getPrice(), 2)).isEqualTo(35.50);
 	}
 
@@ -66,9 +66,9 @@ public class PricesControllerTest {
 	@Test
 	void testGetPrice2() {
 		String getPriceURI = getPriceUri(35455L, 1, "2020-06-14 16:00:00");
-		ResponseEntity<PriceDb> response = rt.getForEntity (getPriceURI, PriceDb.class);
+		ResponseEntity<Price> response = rt.getForEntity (getPriceURI, Price.class);
 		assertEquals(HttpStatus.OK, response.getStatusCode(), "testGetPrice2 check");
-		PriceDb result = response.getBody();
+		Price result = response.getBody();
 		assertThat(withBigDecimal(result.getPrice(), 2)).isEqualTo(25.45);
 	}
 	
@@ -78,9 +78,9 @@ public class PricesControllerTest {
 	@Test
 	void testGetPrice3() {
 		String getPriceURI = getPriceUri(35455L, 1, "2020-06-14 21:00:00");
-		ResponseEntity<PriceDb> response = rt.getForEntity (getPriceURI, PriceDb.class);
+		ResponseEntity<Price> response = rt.getForEntity (getPriceURI, Price.class);
 		assertEquals(HttpStatus.OK, response.getStatusCode(), "testGetPrice3 check");
-		PriceDb result = response.getBody();
+		Price result = response.getBody();
 		assertThat(withBigDecimal(result.getPrice(), 2)).isEqualTo(35.50);
 	}
 
@@ -90,9 +90,9 @@ public class PricesControllerTest {
 	@Test
 	void testGetPrice4() {
 		String getPriceURI = getPriceUri(35455L, 1, "2020-06-15 10:00:00");
-		ResponseEntity<PriceDb> response = rt.getForEntity (getPriceURI, PriceDb.class);
+		ResponseEntity<Price> response = rt.getForEntity (getPriceURI, Price.class);
 		assertEquals(HttpStatus.OK, response.getStatusCode(), "testGetPrice4 check");
-		PriceDb result = response.getBody();
+		Price result = response.getBody();
 		assertThat(withBigDecimal(result.getPrice(), 2)).isEqualTo(30.50);
 	}
 	
@@ -102,9 +102,9 @@ public class PricesControllerTest {
 	@Test
 	void testGetPrice5() {
 		String getPriceURI = getPriceUri(35455L, 1, "2020-06-16 21:00:00");
-		ResponseEntity<PriceDb> response = rt.getForEntity (getPriceURI, PriceDb.class);
+		ResponseEntity<Price> response = rt.getForEntity (getPriceURI, Price.class);
 		assertEquals(HttpStatus.OK, response.getStatusCode(), "testGetPrice5 check");
-		PriceDb result = response.getBody();
+		Price result = response.getBody();
 		assertThat(withBigDecimal(result.getPrice(), 2)).isEqualTo(38.95);
 	}
 
@@ -114,7 +114,7 @@ public class PricesControllerTest {
 	@Test
 	void testGetPrice6() {
 		String getPriceURI = getPriceUri(0L, 1, "2021-06-16 21:00:00");
-		ResponseEntity<PriceDb> response = rt.getForEntity (getPriceURI, PriceDb.class);
+		ResponseEntity<Price> response = rt.getForEntity (getPriceURI, Price.class);
 		assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode(), "testGetPrice6 check");
 	}
 
