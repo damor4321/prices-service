@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "prices", schema = "pos")
 /*
  Note: last_update and last_update_by fiels are not mapped to this entity 
- because they are not included for the service requirements
+ because they are not included by the service requirements
  */
 
 @Data
