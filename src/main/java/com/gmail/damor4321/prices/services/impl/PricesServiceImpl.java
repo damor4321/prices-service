@@ -50,7 +50,7 @@ public class PricesServiceImpl implements PricesService {
 		
 		if (priceDb == null) {
 			String errorMsg = "Price not found for product: " + productId + ", brand_id: " + brandId;
-			log.error(errorMsg);			  
+			log.warn(errorMsg);			  
 			throw new NoPriceFoundException(errorMsg);
 		}
 
