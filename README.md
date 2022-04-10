@@ -7,10 +7,11 @@ This is a SpringBoot PricesService microservice. Currently the service only supp
 * Clone this repository:
 ```
 git clone https://github.com/damor4321/prices-service.git
+cd prices-service
 git checkout main
 ```
 
-* Make sure you are using JDK 1.11 and Maven 3.x
+* Make sure you are using JDK 1.11.x and Maven 3.x
 * You run the tests by running ``mvn clean test``
 * You can build the project, run the tests and verify the outcome by running ``mvn clean verify``
 * You can build the project and run the tests and install the generated artifact to your local mvn repository by running ``mvn clean install``
@@ -79,8 +80,8 @@ Response: HTTP/1.1 400
 
 ```
 
-All the prices service exceptions (NoPriceFoundException, DataStoreException) are children of the class PricesServiceException. 
-And they will be intercepted and handled by the annotated @RestControllerAdvice PricesServiceExceptionController. 
+All the prices service exceptions (NoPriceFoundException, DataStoreException...) are children of the class PricesServiceException. 
+And they will be intercepted and handled by the annotated @RestControllerAdvice controller class PricesServiceExceptionController. 
 As is explained in
 
 ```
