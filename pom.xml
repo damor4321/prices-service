@@ -2,7 +2,7 @@
 	  <modelVersion>4.0.0</modelVersion>
 	  <groupId>com.gmail.damor4321</groupId>
 	  <artifactId>prices-service</artifactId>
-	  <version>0.0.1-SNAPSHOT</version>
+	  <version>0.0.1</version>
 	  <name>prices-service</name>
 	  <description>POS prices service</description>
 	  <packaging>jar</packaging>
