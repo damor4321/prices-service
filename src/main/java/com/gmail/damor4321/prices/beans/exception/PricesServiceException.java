@@ -2,8 +2,8 @@ package com.gmail.damor4321.prices.beans.exception;
 
 // TODO: Auto-generated Javadoc
 /**
- * This is the main exception from which all the others depend on. It's not
- * just to extend it from new child exceptions. There are two constructors that can be used directly
+ * This is the main exception from which all the others depend on. 
+ * There are two constructors that can be used directly
  * with and without an error message.
  */
 public class PricesServiceException extends Exception {
