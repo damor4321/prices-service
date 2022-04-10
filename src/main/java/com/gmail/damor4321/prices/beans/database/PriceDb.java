@@ -25,11 +25,6 @@ import lombok.NoArgsConstructor;
  because they are not included for the service requirements
  */
 
-/**
- * To string.
- *
- * @return the java.lang. string
- */
 @Data
 @Entity
 
