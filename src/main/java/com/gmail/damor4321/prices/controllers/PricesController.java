@@ -36,23 +36,20 @@ public class PricesController {
 	/**
 	 * Returns the price for a product.
 	 *
-	 * @param productId the product id
-	 * @param brandId the brand id
+	 * @param productId   the product id
+	 * @param brandId     the brand id
 	 * @param requestDate the request date
 	 * @return a Response Entity containing the list of cloud providers
 	 */
-	@RequestMapping(value="/product" , method=RequestMethod.GET)
+	@RequestMapping(value = "/product", method = RequestMethod.GET)
 	public @ResponseBody ResponseEntity<Price> getPriceForProduct(
 			@RequestParam(name = "product_id", required = true) Long productId,
 			@RequestParam(name = "brand_id", required = true) Integer brandId,
-			@RequestParam(value="request_date", required = true)
-			@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss") LocalDateTime requestDate
-			) 
-	{
+			@RequestParam(value = "request_date", required = true) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime requestDate) {
 
-		log.info("getPriceFor Product, product_id: {}, brand_id: {}, requestDate: {}",
+		log.info("getPriceFor Product, product_id: {}, brand_id: {}, requestDate: {}", 
 				productId, brandId, requestDate);
-		
+
 		Price priceResponse = service.getPriceForProduct(productId, brandId, requestDate);
 
 		return new ResponseEntity<>(priceResponse, HttpStatus.OK);

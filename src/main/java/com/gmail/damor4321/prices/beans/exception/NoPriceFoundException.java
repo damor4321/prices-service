@@ -6,9 +6,8 @@ package com.gmail.damor4321.prices.beans.exception;
  */
 public class NoPriceFoundException extends RuntimeException {
 	
-	/**
-	 * 
-	 */
+
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/**
